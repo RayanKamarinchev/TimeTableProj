@@ -17,10 +17,10 @@ namespace TimeTableProj
         [STAThread]
         static void Main()
         {
-            //DirectoryInfo dInfo = new DirectoryInfo($"{AppContext.BaseDirectory}");
-            //DirectorySecurity dSecurity = dInfo.GetAccessControl();
-            //dSecurity.AddAccessRule(new FileSystemAccessRule(new SecurityIdentifier(WellKnownSidType.WorldSid, null), FileSystemRights.FullControl, InheritanceFlags.ObjectInherit | InheritanceFlags.ContainerInherit, PropagationFlags.NoPropagateInherit, AccessControlType.Allow));
-            //dInfo.SetAccessControl(dSecurity);
+            DirectoryInfo dInfo = new DirectoryInfo($"{AppContext.BaseDirectory}");
+            DirectorySecurity dSecurity = dInfo.GetAccessControl();
+            dSecurity.AddAccessRule(new FileSystemAccessRule(new SecurityIdentifier(WellKnownSidType.WorldSid, null), FileSystemRights.FullControl, InheritanceFlags.ObjectInherit | InheritanceFlags.ContainerInherit, PropagationFlags.NoPropagateInherit, AccessControlType.Allow));
+            dInfo.SetAccessControl(dSecurity);
             Application.SetHighDpiMode(HighDpiMode.SystemAware);
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
