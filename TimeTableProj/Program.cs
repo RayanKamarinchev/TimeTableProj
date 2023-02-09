@@ -17,6 +17,10 @@ namespace TimeTableProj
         [STAThread]
         static void Main()
         {
+            if (File.Exists($"{AppContext.BaseDirectory}\\TimeTableGenerator\\TimetableGenerator_log.ldf"))
+            {
+                File.Delete($"{AppContext.BaseDirectory}\\TimeTableGenerator\\TimetableGenerator_log.ldf");
+            }
             DirectoryInfo dInfo = new DirectoryInfo($"{AppContext.BaseDirectory}");
             DirectorySecurity dSecurity = dInfo.GetAccessControl();
             dSecurity.AddAccessRule(new FileSystemAccessRule(new SecurityIdentifier(WellKnownSidType.WorldSid, null), FileSystemRights.FullControl, InheritanceFlags.ObjectInherit | InheritanceFlags.ContainerInherit, PropagationFlags.NoPropagateInherit, AccessControlType.Allow));

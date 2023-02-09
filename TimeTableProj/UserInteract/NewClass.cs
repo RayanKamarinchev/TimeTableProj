@@ -19,7 +19,7 @@ namespace TimeTableProj
             var hours = controller.Subjects;
             foreach (var hour in hours)
             {
-                HoursView.Rows.Add(hour);
+                HoursView.Rows.Add(hour.Subject);
             }
         }
 
